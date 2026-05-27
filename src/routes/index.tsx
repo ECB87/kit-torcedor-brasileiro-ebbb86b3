@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Bell, Calendar, CheckCircle2, CircleDot, Flag, Glasses, Lock, MapPin, Megaphone,
-  MessageCircle, Package, Palette, PartyPopper, Scissors, Shield, ShieldCheck,
+  MessageCircle, Package, Palette, PartyPopper, Scissors, ShieldCheck,
   ShoppingCart, Shirt, Sparkles, Star, Truck, Wand2, X, Zap,
 } from "lucide-react";
 import {
