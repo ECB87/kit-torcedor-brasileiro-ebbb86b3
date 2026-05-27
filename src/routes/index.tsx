@@ -119,21 +119,20 @@ function Landing() {
   const [alertVisible, setAlertVisible] = useState(false);
   const alertIdx = useRef(0);
   useEffect(() => {
-    let showT: ReturnType<typeof setTimeout>;
-    let hideT: ReturnType<typeof setTimeout>;
+    let hideT: ReturnType<typeof setTimeout> | undefined;
     const showNext = () => {
       const a = ALERTS[alertIdx.current % ALERTS.length];
       alertIdx.current += 1;
       setCurrentAlert(a);
       setAlertVisible(true);
+      if (hideT) clearTimeout(hideT);
       hideT = setTimeout(() => setAlertVisible(false), 5500);
     };
     const first = setTimeout(showNext, 3000);
     const loop = setInterval(showNext, 14000);
     return () => {
       clearTimeout(first);
-      clearTimeout(showT);
-      clearTimeout(hideT);
+      if (hideT) clearTimeout(hideT);
       clearInterval(loop);
     };
   }, []);
