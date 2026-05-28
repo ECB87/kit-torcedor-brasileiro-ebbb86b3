@@ -768,7 +768,7 @@ function Landing() {
             <p className="text-xs text-slate-500 mt-4 leading-relaxed">
               Todos os direitos reservados. Produto não oficial da FIFA ou CBF.
               Imagens ilustrativas com alta fidelidade ao produto real.
-              <br />CNPJ: 00.000.000/0000-00
+              <br />CNPJ: 36.852.258/0001-63
             </p>
           </div>
           <div>
