@@ -10,7 +10,7 @@ import {
   ALERTS, CATEGORY_META, FAQS, REVIEWS, TORCEDOR_ITEMS,
   type Category, type TorcedorItem,
 } from "@/lib/torcedor-data";
-import kitRealImg from "@/assets/kit_torcedor_real_layout.jpg";
+import kitRealImg from "@/assets/kit_torcedor_real_layout.png";
 import kitBoxImg from "@/assets/kit_torcedor_box_items_white_bg.jpg";
 
 const CHECKOUT_URL = "https://entrega.logzz.com.br/pay/memgnzpp7/vaibrasil";
@@ -109,7 +109,7 @@ function Landing() {
   );
 
   // ---- Hero media tabs ----
-  const [activeMedia, setActiveMedia] = useState<"real" | "box">("real");
+  const [activeMedia, setActiveMedia] = useState<"vsl" | "real" | "box">("vsl");
 
   // ---- FAQ ----
   const [faqOpenIndex, setFaqOpenIndex] = useState<number | null>(0);
@@ -293,34 +293,49 @@ function Landing() {
           <div className="lg:col-span-2">
             <div className="relative bg-white/5 border border-white/10 rounded-2xl p-3 sm:p-4 backdrop-blur">
               <div className="flex gap-2 mb-3">
-                {(["real", "box"] as const).map((k) => (
+                {(["vsl", "real", "box"] as const).map((k) => (
                   <button
                     key={k}
                     onClick={() => setActiveMedia(k)}
-                    aria-label={`Ver ${k === "real" ? "foto real do kit" : "embalagem"}`}
+                    aria-label={`Ver ${k === "vsl" ? "vídeo do kit" : k === "real" ? "foto real do kit" : "embalagem"}`}
                     className={`flex-1 text-xs sm:text-sm font-semibold py-2 rounded-lg transition ${
                       activeMedia === k
                         ? "bg-[#FFCC00] text-slate-900"
                         : "bg-white/10 text-slate-200 hover:bg-white/15"
                     }`}
                   >
-                    {k === "real" ? "Foto Real" : "Embalagem"}
+                    {k === "vsl" ? "▶ Vídeo" : k === "real" ? "Foto Real" : "Embalagem"}
                   </button>
                 ))}
               </div>
               <div className="relative aspect-square rounded-xl overflow-hidden bg-white">
                 <AnimatePresence mode="wait">
-                  <motion.img
-                    key={activeMedia}
-                    src={activeMedia === "real" ? kitRealImg : kitBoxImg}
-                    alt={activeMedia === "real" ? "Layout real dos 12 itens do Kit Torcedor Brasil" : "Embalagem oficial do Kit Torcedor Brasil"}
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.02 }}
-                    transition={{ duration: 0.35 }}
-                    decoding="async"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                  {activeMedia === "vsl" ? (
+                    <motion.video
+                      key="vsl"
+                      src="/vsl.mp4"
+                      controls
+                      playsInline
+                      preload="metadata"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0 w-full h-full object-cover bg-black"
+                    />
+                  ) : (
+                    <motion.img
+                      key={activeMedia}
+                      src={activeMedia === "real" ? kitRealImg : kitBoxImg}
+                      alt={activeMedia === "real" ? "Layout real dos 12 itens do Kit Torcedor Brasil" : "Embalagem oficial do Kit Torcedor Brasil"}
+                      initial={{ opacity: 0, scale: 0.98 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.02 }}
+                      transition={{ duration: 0.35 }}
+                      decoding="async"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  )}
                 </AnimatePresence>
                 <div className="absolute top-3 right-3 bg-slate-900/85 text-white text-[11px] font-bold px-2.5 py-1.5 rounded-full">
                   CAIXA OFICIAL ★★★★★
