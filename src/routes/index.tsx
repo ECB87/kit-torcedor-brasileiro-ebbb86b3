@@ -109,7 +109,7 @@ function Landing() {
   );
 
   // ---- Hero media tabs ----
-  const [activeMedia, setActiveMedia] = useState<"real" | "box">("real");
+  const [activeMedia, setActiveMedia] = useState<"vsl" | "real" | "box">("vsl");
 
   // ---- FAQ ----
   const [faqOpenIndex, setFaqOpenIndex] = useState<number | null>(0);
