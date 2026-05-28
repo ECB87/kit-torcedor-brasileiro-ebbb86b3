@@ -14,7 +14,7 @@ import kitRealImg from "@/assets/kit_torcedor_real_layout.png";
 import kitBoxImg from "@/assets/kit_torcedor_box_items_white_bg.jpg";
 
 const CHECKOUT_URL = "https://entrega.logzz.com.br/pay/memgnzpp7/vaibrasil";
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Ol%C3%A1!+Tenho+d%C3%BAvidas+sobre+o+Kit+Torcedor+Brasil";
+const WHATSAPP_URL = "https://wa.me/5511915526641?text=Ol%C3%A1!+Tenho+d%C3%BAvidas+sobre+o+Kit+Torcedor+Brasil";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -755,7 +755,7 @@ function Landing() {
 
       {/* ============ SECTION 10: FOOTER ============ */}
       <footer className="bg-slate-950 text-slate-300 py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid md:grid-cols-2 gap-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid md:grid-cols-3 gap-8">
           <div>
             <div className="font-extrabold text-white flex items-center gap-2">
               <Flag className="w-5 h-5 text-[#FFCC00]" />
@@ -768,15 +768,38 @@ function Landing() {
             <p className="text-xs text-slate-500 mt-4 leading-relaxed">
               Todos os direitos reservados. Produto não oficial da FIFA ou CBF.
               Imagens ilustrativas com alta fidelidade ao produto real.
-              {/* TODO: inserir CNPJ real */}
-              <br />[CNPJ]
+              <br />CNPJ: 00.000.000/0000-00
             </p>
           </div>
-          <div className="md:text-right space-y-2 text-sm">
-            <div className="flex md:justify-end items-center gap-2"><ShieldCheck className="w-4 h-4 text-emerald-400" /> Compra Segura</div>
-            <div className="flex md:justify-end items-center gap-2"><Truck className="w-4 h-4 text-emerald-400" /> Envio em 24h</div>
-            <div className="flex md:justify-end items-center gap-2"><MessageCircle className="w-4 h-4 text-emerald-400" /> Suporte WhatsApp</div>
+          <div>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wide mb-3">Políticas e Garantias</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" /> Garantia de 7 dias incondicional</div>
+              <div className="flex items-center gap-2"><Truck className="w-4 h-4 text-emerald-400 shrink-0" /> Envio em 24h com rastreamento</div>
+              <div className="flex items-center gap-2"><Lock className="w-4 h-4 text-emerald-400 shrink-0" /> Compra 100% segura (SSL bancário)</div>
+              <div className="flex items-center gap-2"><MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" /> Suporte via WhatsApp</div>
+            </div>
           </div>
+          <div>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wide mb-3">Atendimento</h4>
+            <div className="space-y-2 text-sm text-slate-400">
+              <p>Dúvidas? Fale conosco pelo WhatsApp:</p>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-white font-semibold hover:text-[#25D366] transition"
+              >
+                <MessageCircle className="w-4 h-4" /> (11) 91552-6641
+              </a>
+              <p className="text-xs">Segunda a Sexta: 9h às 18h</p>
+              <p className="text-xs">Sábado: 9h às 13h</p>
+            </div>
+          </div>
+        </div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-10 pt-6 border-t border-white/10 text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <span>Kit Torcedor Brasil © 2026 — Todos os direitos reservados</span>
+          <span>Política de Privacidade · Termos de Uso · Política de Trocas e Devoluções</span>
         </div>
       </footer>
 
